@@ -4,7 +4,7 @@ if not logger.initted() then
     local ok, err = logger.init {
         host = "127.0.0.1",
         port = 8881,
-        flush_limit = 128,
+        flush_limit = 1024,
     }
 
     if not ok then
@@ -20,4 +20,6 @@ if err then
     return
 end
 
-ngx.log(ngx.INFO, "success push")
+
+--ngx.log(ngx.INFO, "success push"," cur buffer length: ", 
+ --       logger.cur_buffer_len())
